@@ -1,0 +1,22 @@
+from PIL import Image
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+
+input_folder = r"D:\datasets\fishing dataset\temp-dataset\dataset"
+
+output_folder = r"D:\datasets\fishing dataset\temp-dataset\dataset-256"
+
+# Open the input image
+file_list = os.listdir(input_folder)
+
+for file in file_list:
+    img = Image.open(os.path.join(input_folder, file))
+    
+# Resize the input image to the desired output shape
+    # Resize the image while maintaining aspect ratio
+    img = img.resize((256, 256))
+
+    img.save(os.path.join(output_folder, file))
+
+
